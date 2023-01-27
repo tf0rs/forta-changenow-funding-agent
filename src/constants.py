@@ -5,7 +5,7 @@ CHANGENOW_ADDRESSES = {
 
 CHANGENOW_THRESHOLD = {
     1: 0.0015,
-    56: 0.0015
+    56: 0.5
 }
 
 PROTOCOLS = {

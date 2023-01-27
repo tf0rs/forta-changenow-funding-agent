@@ -42,19 +42,22 @@ def detect_changenow_funding(w3, transaction_event):
     findings = []
 
     chain_id = w3.eth.chain_id
-    eth_value = transaction_event.transaction.value / 10e17
+    native_value = transaction_event.transaction.value / 10e17
 
     logging.info(f"Analyzing transaction {transaction_event.transaction.hash} on chain {chain_id}")
     logging.info(f"Raw value: {transaction_event.transaction.value}")
-    logging.info(f"Value: {eth_value}")
+    logging.info(f"Value: {native_value}")
     logging.info(f"Changenow address: {CHANGENOW_ADDRESSES[chain_id]}")
     logging.info(f"Sending address: {transaction_event.from_}")
     logging.info(f"Address transaction count: {w3.eth.get_transaction_count(Web3.toChecksumAddress(transaction_event.to))}")
-
+    """
+    if the transaction is from Changenow, and not to a contract: check if transaction count is 0, 
+    else check if value sent is less than the threshold
+    """
     if (transaction_event.from_ in CHANGENOW_ADDRESSES[chain_id] and not is_contract(w3, transaction_event.to)):
         if w3.eth.get_transaction_count(Web3.toChecksumAddress(transaction_event.to)) == 0:
             findings.append(FundingChangenowFindings.funding_changenow(transaction_event, "new-eoa", chain_id))
-        elif eth_value < CHANGENOW_THRESHOLD[chain_id]:
+        elif native_value < CHANGENOW_THRESHOLD[chain_id]:
             findings.append(FundingChangenowFindings.funding_changenow(transaction_event, "low-amount", chain_id))
     return findings
 

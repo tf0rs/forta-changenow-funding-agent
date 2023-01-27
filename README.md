@@ -20,7 +20,7 @@ Describe each of the type of alerts fired by this agent
   - Metadata includes the amount funded, and the receiving address
 
 - FUNDING-CHANGENOW-LOW-AMOUNT
-  - Fired when a transaction from the ChangeNow hot wallet is over a certain threshold
+  - Fired when a transaction from the ChangeNow hot wallet is under a certain threshold
   - Severity is always set to "low"
   - Type is always set to "info"
   - Metadata includes the threshold for this agent, the amount funded, and the receiving address
@@ -29,5 +29,5 @@ Describe each of the type of alerts fired by this agent
 
 The agent behaviour can be verified with the following transactions:
 
-- 0xd9e3930bfb0bbbd9d0a1ff69bd4bb450bd4b50cc6b118be101cc88c1f3d38a6d (new EOA address)
+- 0xc4af34bc84bbdda599ccf915a9c6cb62481899086767480212a4b28f4636c0f7 (new EOA address)
 - 0x25678c1fd55f14c6a04e6c54c21bf13b51d84974db8299dafe86dd755d3a6b64 (low funding amount)
