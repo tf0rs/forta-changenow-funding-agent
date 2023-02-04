@@ -21,7 +21,7 @@ class FundingChangenowFindings:
         else:
             finding = Finding({
                 'name': 'Changenow Funding',
-                'description': f'{transaction.to} received significant funds from ChangeNow',
+                'description': f'{transaction.to} received a low amount of funds from ChangeNow',
                 'alert_id': 'FUNDING-CHANGENOW-LOW-AMOUNT',
                 'type': FindingType.Info,
                 'severity': FindingSeverity.Low,

@@ -7,7 +7,8 @@ This agent detects transactions in the native currency from ChangeNow hot wallet
 ## Supported Chains
 
 - Ethereum
-- BSC
+- Binance Smart Chain
+- Polygon
 
 ## Alerts
 

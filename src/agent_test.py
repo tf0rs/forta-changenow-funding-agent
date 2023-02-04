@@ -82,7 +82,7 @@ class TestChangeNowFundingAgent:
                 'hash': "0",
                 'to': OLD_EOA,
                 'from': "0x077d360f11d220e4d5d831430c81c26c9be7c4a4",
-                'value': "300000000000000000"
+                'value': "3000000000000000"
             },
             'block': {
                 'number': 1
@@ -94,5 +94,5 @@ class TestChangeNowFundingAgent:
 
         findings = agent.detect_changenow_funding(w3, tx_event)
         assert len(findings) == 1, "This should have triggered a finding"
-        assert findings[0].alert_id == "FUNDING-CHANGENOW-LOW-AMOUNT", "This is a high value transfer from Changenow"
+        assert findings[0].alert_id == "FUNDING-CHANGENOW-LOW-AMOUNT", "This is a low value transfer from Changenow"
         assert findings[0].severity == FindingSeverity.Low, "Severity should be low"
