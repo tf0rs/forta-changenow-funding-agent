@@ -1,5 +1,5 @@
 from forta_agent import Finding, FindingType, FindingSeverity
-from .constants import *
+from src.constants import *
 
 class FundingChangenowFindings:
 
