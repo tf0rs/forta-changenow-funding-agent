@@ -2,7 +2,7 @@
 
 ## Description
 
-This agent detects transactions in the native currency from ChangeNow hot wallets to new EOA addresses, and to any address when the amount sent is under a certain threshold.
+This agent detects transactions in the native currency from ChangeNow hot wallets to new EOA addresses, and to any EOA address when the amount sent is under a certain threshold. A new EOA address is defined here as one that has not sent any transactions.
 
 ## Supported Chains
 
@@ -15,13 +15,13 @@ This agent detects transactions in the native currency from ChangeNow hot wallet
 Describe each of the type of alerts fired by this agent
 
 - FUNDING-CHANGENOW-NEW-ACCOUNT
-  - Fired when a transaction from the ChangeNow hot wallet is to a new EOA address
+  - Fired when a transaction from the ChangeNOW hot wallet is to a new EOA address
   - Severity is always set to "low"
   - Type is always set to "info"
   - Metadata includes the amount funded, and the receiving address
 
 - FUNDING-CHANGENOW-LOW-AMOUNT
-  - Fired when a transaction from the ChangeNow hot wallet is under a certain threshold
+  - Fired when a transaction from the ChangeNOW hot wallet is under a certain threshold
   - Severity is always set to "low"
   - Type is always set to "info"
   - Metadata includes the threshold for this agent, the amount funded, and the receiving address

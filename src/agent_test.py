@@ -96,3 +96,25 @@ class TestChangeNowFundingAgent:
         assert len(findings) == 1, "This should have triggered a finding"
         assert findings[0].alert_id == "FUNDING-CHANGENOW-LOW-AMOUNT", "This is a low value transfer from Changenow"
         assert findings[0].severity == FindingSeverity.Low, "Severity should be low"
+
+    
+    def test_high_value_transfer_from_changenow(self):
+        agent.initialize()
+
+        tx_event = create_transaction_event({
+            'transaction': {
+                'hash': "0",
+                'to': OLD_EOA,
+                'from': "0x077d360f11d220e4d5d831430c81c26c9be7c4a4",
+                'value': "300000000000000000"
+            },
+            'block': {
+                'number': 1
+            },
+            'receipt': {
+                'logs': []
+            }
+        })
+
+        findings = agent.detect_changenow_funding(w3, tx_event)
+        assert len(findings) == 0, "This should not have triggered a finding - It is to an address that has sent a transaction and is over the threshold."
