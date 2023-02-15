@@ -1,4 +1,4 @@
-from forta_agent import Finding, FindingType, FindingSeverity
+from forta_agent import Finding, FindingType, FindingSeverity, EntityType
 from src.constants import *
 
 class FundingChangenowFindings:
@@ -17,7 +17,21 @@ class FundingChangenowFindings:
                     "amount funded": f"{transaction.transaction.value / 10e17} {CURRENCIES[chain_id]}",
                     "receiving address": f"{transaction.to}",
                     "anomaly_score": anomaly_score
-                }
+                },
+                'labels': [
+                    {
+                        'entity_type': EntityType.Address,
+                        'entity': transaction.to,
+                        'label': "attacker",
+                        'confidence': 0.2
+                    },
+                    {
+                        'entity_type': EntityType.Transaction,
+                        'entity': transaction.transaction.hash,
+                        'label': "attacker-funding",
+                        'confidence': 0.2
+                    },
+                ]
             })
         else:
             finding = Finding({
@@ -33,6 +47,20 @@ class FundingChangenowFindings:
                     "amount funded": f"{transaction.transaction.value / 10e17} {CURRENCIES[chain_id]}",
                     "receiving address": f"{transaction.to}",
                     "anomaly_score": anomaly_score
-                }
+                },
+                'labels': [
+                    {
+                        'entity_type': EntityType.Address,
+                        'entity': transaction.to,
+                        'label': "attacker",
+                        'confidence': 0.2
+                    },
+                    {
+                        'entity_type': EntityType.Transaction,
+                        'entity': transaction.transaction.hash,
+                        'label': "attacker-funding",
+                        'confidence': 0.2
+                    },
+                ]
             })
         return finding
