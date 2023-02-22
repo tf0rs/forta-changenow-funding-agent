@@ -20,13 +20,13 @@ class FundingChangenowFindings:
                 },
                 'labels': [
                     {
-                        'entity_type': EntityType.Address,
+                        'entityType': EntityType.Address,
                         'entity': transaction.to,
                         'label': "attacker",
                         'confidence': 0.2
                     },
                     {
-                        'entity_type': EntityType.Transaction,
+                        'entityType': EntityType.Transaction,
                         'entity': transaction.transaction.hash,
                         'label': "attacker-funding",
                         'confidence': 0.2
@@ -50,13 +50,13 @@ class FundingChangenowFindings:
                 },
                 'labels': [
                     {
-                        'entity_type': EntityType.Address,
+                        'entityType': EntityType.Address,
                         'entity': transaction.to,
                         'label': "attacker",
                         'confidence': 0.2
                     },
                     {
-                        'entity_type': EntityType.Transaction,
+                        'entityType': EntityType.Transaction,
                         'entity': transaction.transaction.hash,
                         'label': "attacker-funding",
                         'confidence': 0.2

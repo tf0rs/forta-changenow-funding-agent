@@ -4,10 +4,7 @@ CHANGENOW_ADDRESSES = {
     137: ['0x3a0d24d59af3a3444dc6ef12cdb0c6e38c985288']
 }
 
-"""
-At the time of deployment, thresholds are at ~$150 based on the value of the tokens. It's difficult to optimize this number, but
-it should help interpretability of results to have them standard across all chains. (Based on feedback from Forta TRi participants.)
-"""
+# At the time of deployment thresholds are set to ~$150
 CHANGENOW_THRESHOLD = {
     1: 0.09,
     56: 0.5,
