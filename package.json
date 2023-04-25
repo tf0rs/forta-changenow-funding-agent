@@ -7,6 +7,20 @@
     56,
     137
   ],
+  "chainSettings": {
+    "1": {
+      "shards": 2,
+      "target": 3
+    },
+    "137": {
+      "shards": 4,
+      "target": 3
+    },
+    "56": {
+      "shards": 3,
+      "target": 3
+    }
+  },
   "repository": "https://github.com/tf0rs/forta-changenow-funding-agent",
   "scripts": {
     "postinstall": "python3 -m pip install -r requirements_dev.txt",
