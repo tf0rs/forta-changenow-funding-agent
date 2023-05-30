@@ -1,6 +1,6 @@
 {
   "name": "forta-changenow-funding-agent",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Detecting addresses being funded by ChangeNow",
   "chainIds": [
     1,
@@ -9,15 +9,15 @@
   ],
   "chainSettings": {
     "1": {
-      "shards": 2,
+      "shards": 10,
       "target": 3
     },
     "137": {
-      "shards": 4,
+      "shards": 17,
       "target": 3
     },
     "56": {
-      "shards": 3,
+      "shards": 15,
       "target": 3
     }
   },
